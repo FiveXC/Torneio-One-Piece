@@ -1,5 +1,6 @@
 /*||*/
 
+
 let area1 = document.querySelector(".area1")  
 let area2 = document.querySelector(".area2")  
 let btnRandom = document.querySelector(".btnRandom")
@@ -51,10 +52,11 @@ arrayFotos.splice(novoPersonagem,1)
 
 if(area2.innerHTML === "undefined"){
     location.reload()
-
     alert(`Vencedor ${area1.innerHTML}`)
+    area1.innerHTML = ""
+    area2.innerHTML = ""
 }
-console.log(arrayFotos)
+
 })
 
 
@@ -72,7 +74,6 @@ location.reload()
 alert(`Vencedor ${area2.innerHTML}`)
 }
 
-console.log(arrayFotos)
 })
 
 
