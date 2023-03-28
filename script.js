@@ -1,7 +1,7 @@
 /*||*/
 
-let area1 = document.querySelector(".area1")  
-let area2 = document.querySelector(".area2") 
+let img1 = document.querySelector(".img1")  
+let img2 = document.querySelector(".img2") 
 let areaNome1 = document.querySelector(".areaNome1") 
 let areaNome2 = document.querySelector(".areaNome2") 
 let btnRandom = document.querySelector(".btnRandom")
@@ -64,87 +64,90 @@ nome:"doflamingo",
 color: "pink",
 },
 
-]
+];
 
 
-let numeroRandom1 = Math.floor(Math.random()* arrayFotos.length)
-let numeroRandom2 = Math.floor(Math.random()* arrayFotos.length)
 
 btnRandom.addEventListener("click", ()=>{
-location.reload()
+    location.reload()
 })
 
-function numeroAleatorios() {
-if (numeroRandom1 === numeroRandom2) {
-     location.reload();
-} 
-else {
-      area1.src = arrayFotos[numeroRandom1].foto;
-      areaNome1.innerHTML = arrayFotos[numeroRandom1].nome;
-      areaNome1.style.color = arrayFotos[numeroRandom1].color;
+let numeroRandom1 = Math.floor(Math.random() * arrayFotos.length);
+let numeroRandom2 = Math.floor(Math.random() * arrayFotos.length);
 
-      area2.src = arrayFotos[numeroRandom2].foto;
-      areaNome2.innerHTML = arrayFotos[numeroRandom2].nome;
-      areaNome2.style.color = arrayFotos[numeroRandom2].color;
 
-if (numeroRandom1 < numeroRandom2) {
 
-      arrayFotos.splice(numeroRandom2, 1);
-      arrayFotos.splice(numeroRandom1, 1);
 
-} 
-else {
-  arrayFotos.splice(numeroRandom1, 1);
-  arrayFotos.splice(numeroRandom2, 1);
+
+function fotosRandomAoiniciar(){
+
+if(numeroRandom1 === numeroRandom2){
+    location.reload()
 }
+else{
+    img1.src = arrayFotos[numeroRandom1].foto
+    img2.src = arrayFotos[numeroRandom2].foto
+
+    areaNome1.innerHTML = arrayFotos[numeroRandom1].nome
+    areaNome1.style.color = arrayFotos[numeroRandom1].color
+
+    areaNome2.innerHTML = arrayFotos[numeroRandom2].nome
+    areaNome2.style.color = arrayFotos[numeroRandom2].color
+
+
+if(numeroRandom1 < numeroRandom2){
+
+arrayFotos.splice(numeroRandom2,1)
+arrayFotos.splice(numeroRandom1,1)
+
+}
+else{
+
+arrayFotos.splice(numeroRandom1,1)
+arrayFotos.splice(numeroRandom2,1)
+
 }
 
 }
+  }fotosRandomAoiniciar()
 
-numeroAleatorios()
 
-area1.addEventListener("click", passandoPersonagem1)
 
-function passandoPersonagem1(){
-
-let novoPersonagem = Math.floor(Math.random()* arrayFotos.length)
+img1.addEventListener("click", ()=>{
 
 if(arrayFotos.length == 0){
     alert(`Vencedor ${areaNome1.innerHTML}`)
     location.reload()
 }
 else{
-    area2.src = arrayFotos[novoPersonagem].foto
+    let novoPersonagem =  Math.floor(Math.random() * arrayFotos.length);
+    img2.src = arrayFotos[novoPersonagem].foto
     areaNome2.innerHTML = arrayFotos[novoPersonagem].nome
-    areaNome2.style.color = arrayFotos[novoPersonagem].color;
+    areaNome2.style.color = arrayFotos[novoPersonagem].color
+
     arrayFotos.splice(novoPersonagem,1)
 }
 
-}
+
+})
 
 
-area2.addEventListener("click", passandoPersonagem2)
 
-function passandoPersonagem2(){
-let novoPersonagem = Math.floor(Math.random()* arrayFotos.length)
+
+img2.addEventListener("click", ()=>{
 
 if(arrayFotos.length == 0){
     alert(`Vencedor ${areaNome2.innerHTML}`)
     location.reload()
 }
 else{
-    area1.src = arrayFotos[novoPersonagem].foto
+    let novoPersonagem =  Math.floor(Math.random() * arrayFotos.length);
+    img1.src = arrayFotos[novoPersonagem].foto
     areaNome1.innerHTML = arrayFotos[novoPersonagem].nome
-    areaNome1.style.color = arrayFotos[novoPersonagem].color;
+    areaNome1.style.color = arrayFotos[novoPersonagem].color
+    
     arrayFotos.splice(novoPersonagem,1)
 }
+    
 
-}
-
-
-
-
-
-
-
-
+})
